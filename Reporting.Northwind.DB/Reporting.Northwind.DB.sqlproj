@@ -109,6 +109,7 @@
     <WarningLevel>4</WarningLevel>
     <IsLedgerOn>False</IsLedgerOn>
     <DataRetentionEnabled>False</DataRetentionEnabled>
+    <RunSqlCodeAnalysis>True</RunSqlCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -124,6 +125,8 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Views\" />
     <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Post-Deployment" />
+    <Folder Include="Post-Deployment\DefaultData" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Employees.sql">
@@ -270,5 +273,28 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <PostDeploy Include="Post-Deployment\PostDeployment.sql" />
+    <None Include="Post-Deployment\DefaultData\Employees.DefaultData.sql" />
+    <None Include="Post-Deployment\DefaultData\EmployeeTerritories.DefaultData.sql" />
+    <None Include="Post-Deployment\DefaultData\Order_Details.DefaultData.sql" />
+    <None Include="Post-Deployment\DefaultData\Orders.DefaultData.sql" />
+    <None Include="Post-Deployment\DefaultData\Products.DefaultData.sql" />
+    <None Include="Post-Deployment\DefaultData\Region.DefaultData.sql" />
+    <None Include="Post-Deployment\DefaultData\Shippers.DefaultData.sql" />
+    <None Include="Post-Deployment\DefaultData\Suppliers.DefaultData.sql" />
+    <None Include="Post-Deployment\DefaultData\Territories.DefaultData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Post-Deployment\DefaultData\Categories.DefaultData.sql" />
+    <None Include="Reporting.Northwind.DB.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Post-Deployment\DefaultData\Customers.DefaultData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="DeployDefaultData">
+      <DefaultValue>False</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
   </ItemGroup>
 </Project>
